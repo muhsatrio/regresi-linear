@@ -1,0 +1,90 @@
+.container-fluid {
+	padding: 100px;
+}
+table {
+	width:200px;
+}
+th,td {
+		padding:5px;
+	}
+.hasil {
+	display: none;
+}
+
+.kotak {
+	width: 80px;
+}
+
+.ulangiButton {
+	display: none;
+}
+.head-tabel {
+	font-size: 15px;
+}
+
+.bawah {
+	margin-top:50px;
+}
+
+
+.kotak4 {
+	display: none;
+}
+.kotak5 {
+	display: none;
+}
+.kotak6 {
+	display: none;
+}
+.kotak7 {
+	display: none;
+}
+.kotak8 {
+	display: none;
+}
+.kotak9 {
+	display: none;
+}
+.kotak10 {
+	display: none;
+}
+.tabelregresi {
+	display: none;
+}
+.grafik {
+	display: none;
+	padding-top: 100px;
+}
+.judul {
+	margin-bottom: 40px;
+}
+.row1 {
+	display: none;
+}
+.row2 {
+	display: none;
+}
+.row3 {
+	display: none;
+}
+.row4 {
+	display: none;
+}
+.row5 {
+	display: none;
+}
+.row6 {
+	display: none;
+}
+.row7 {
+	display: none;
+}
+.row8 {
+	display: none;
+}
+.row9 {
+	display: none;
+}
+.row10 {
+	display: none;
+}

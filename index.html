@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Regresi Linear</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="assets/css/bootstrap-theme.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script type="text/javascript" src="assets/js/jquery.js"></script>
+	<script type="text/javascript" src="assets/js/bootstrap.js"></script>
+	<script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="proses.js"></script>
+	<script type="text/javascript" src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+	<script>
+	MathJax.Hub.Config({
+		tex2jax: {
+  			inlineMath: [['$','$'], ['\\(','\\)']]
+  		}
+	});
+	</script>
+</head>
+<body>
+	<div class="container-fluid">
+		<header>
+			<center><h2>Regresi Linear</h2></center>
+		</header>
+		<center>
+		<table>
+			<tr>
+				<th><center>No.</center></th>
+				<th><center>X</center></th>
+				<th><center>Y</center></th>
+			</tr>
+			<tr class="kotak1">
+				<td>1</td>
+				<td><center><input class="x1 kotak form-control" value="0" type="text" placeholder="X"></center></td>
+				<td><center><input class="y1 kotak form-control" value="0" type="text" placeholder="Y"></center></td>
+			</tr>
+			<tr class="kotak2">
+				<td>2</td>
+				<td><center><input class="x2 kotak form-control" value="0" type="text" placeholder="X"></center></td>
+				<td><center><input class="y2 kotak form-control" value="0" type="text" placeholder="Y"></center></td>
+			</tr>
+			<tr class="kotak3">
+				<td>3</td>
+				<td><center><input class="x3 kotak form-control" value="0" type="text" placeholder="X"></center></td>
+				<td><center><input class="y3 kotak form-control" value="0" type="text" placeholder="Y"></center></td>
+			</tr>
+			<tr class="kotak4">
+				<td>4</td>
+				<td><center><input class="x4 kotak form-control" value="0" type="text" placeholder="X"></center></td>
+				<td><center><input class="y4 kotak form-control" value="0" type="text" placeholder="Y"></center></td>
+			</tr>
+			<tr class="kotak5">
+				<td>5</td>
+				<td><center><input class="x5 kotak form-control" value="0" type="text" placeholder="X"></center></td>
+				<td><center><input class="y5 kotak form-control" value="0" type="text" placeholder="Y"></center></td>
+			</tr>
+			<tr class="kotak6">
+				<td>6</td>
+				<td><center><input class="x6 kotak form-control" value="0" type="text" placeholder="X"></center></td>
+				<td><center><input class="y6 kotak form-control" value="0" type="text" placeholder="Y"></center></td>
+			</tr>
+			<tr class="kotak7">
+				<td>7</td>
+				<td><center><input class="x7 kotak form-control" value="0" type="text" placeholder="X"></center></td>
+				<td><center><input class="y7 kotak form-control" value="0" type="text" placeholder="Y"></center></td>
+			</tr>
+			<tr class="kotak8">
+				<td>8</td>
+				<td><center><input class="x8 kotak form-control" value="0" type="text" placeholder="X"></center></td>
+				<td><center><input class="y8 kotak form-control" value="0" type="text" placeholder="Y"></center></td>
+			</tr>
+			<tr class="kotak9">
+				<td>9</td>
+				<td><center><input class="x9 kotak form-control" value="0" type="text" placeholder="X"></center></td>
+				<td><center><input class="y9 kotak form-control" value="0" type="text" placeholder="X"></center></td>
+			</tr>
+			<tr class="kotak10">
+				<td>10</td>
+				<td><center><input class="x10 kotak form-control" value="0" type="text" placeholder="X"></center></td>
+				<td><center><input class="y10 kotak form-control" value="0" type="text" placeholder="X"></center></td>
+			</tr>
+		</table>
+		
+		<div class="row">
+			<div>
+			<button class="prosesButton btn btn-md btn-primary"><span>Input</span></button>
+			<button class="ulangiButton tombol btn btn-md btn-primary"><span>Ulangi</span></button>
+			<button class="tambahButton tombol btn btn-md btn-primary"><span class="glyphicon glyphicon-menu-down"></span></button>
+			<button class="kurangButton tombol btn btn-md btn-primary"><span class="glyphicon glyphicon-menu-up"></span></button>
+			</div>
+		
+		</div>
+		<div class="row tabelregresi">
+		<h2 class="judul">Tabel</h2>
+		<table class="table table-striped">
+		<tr class="judul">
+			<th>No.</th>
+			<th>X<sub>i</sub></th>
+			<th>Y<sub>i</sub></th>
+			<th>X<sub>i</sub><sup>2</sup></th>
+			<th>Y<sub>i</sub><sup>2</sup></th>
+			<th>X<sub>i</sub>Y<sub>i</sub></th>
+		</tr>
+		<tr class="row1">
+			<td>1</td>
+			<td class="x-1"></td>
+			<td class="y-1"></td>
+			<td class="xx-1"></td>
+			<td class="yy-1"></td>
+			<td class="xy-1"></td>
+		</tr>
+		<tr class="row2">
+			<td>2</td>
+			<td class="x-2"></td>
+			<td class="y-2"></td>
+			<td class="xx-2"></td>
+			<td class="yy-2"></td>
+			<td class="xy-2"></td>
+		</tr>
+		<tr class="row3">
+			<td>3</td>
+			<td class="x-3"></td>
+			<td class="y-3"></td>
+			<td class="xx-3"></td>
+			<td class="yy-3"></td>
+			<td class="xy-3"></td>
+		</tr>
+		<tr class="row4">
+			<td>4</td>
+			<td class="x-4"></td>
+			<td class="y-4"></td>
+			<td class="xx-4"></td>
+			<td class="yy-4"></td>
+			<td class="xy-4"></td>
+		</tr>
+		<tr class="row5">
+			<td>5</td>
+			<td class="x-5"></td>
+			<td class="y-5"></td>
+			<td class="xx-5"></td>
+			<td class="yy-5"></td>
+			<td class="xy-5"></td>
+		</tr>
+		<tr class="row6">
+			<td>6</td>
+			<td class="x-6"></td>
+			<td class="y-6"></td>
+			<td class="xx-6"></td>
+			<td class="yy-6"></td>
+			<td class="xy-6"></td>
+		</tr>
+		<tr class="row7">
+			<td>7</td>
+			<td class="x-7"></td>
+			<td class="y-7"></td>
+			<td class="xx-7"></td>
+			<td class="yy-7"></td>
+			<td class="xy-7"></td>
+		</tr>
+		<tr class="row8">
+			<td>8</td>
+			<td class="x-8"></td>
+			<td class="y-8"></td>
+			<td class="xx-8"></td>
+			<td class="yy-8"></td>
+			<td class="xy-8"></td>
+		</tr>
+		<tr class="row9">
+			<td>9</td>
+			<td class="x-9"></td>
+			<td class="y-9"></td>
+			<td class="xx-9"></td>
+			<td class="yy-9"></td>
+			<td class="xy-9"></td>
+		</tr>
+		<tr class="row10">
+			<td>10</td>
+			<td class="x-10"></td>
+			<td class="y-10"></td>
+			<td class="xx-10"></td>
+			<td class="yy-10"></td>
+			<td class="xy-10"></td>
+		</tr>
+		<tr class="hasil">
+			<td>&sum;</td>
+			<th class="x-sum">A</th>
+			<th class="y-sum">B</th>
+			<th class="xx-sum">C</th>
+			<th class="yy-sum">D</th>
+			<th class="xy-sum">E</th>
+		</tr>
+		</table>
+		</div>
+		</center>
+		<div class="hasil">
+			<center>
+				<h2 class="judul">Pengolahan Data</h2>
+			</center>
+			<span id="calculateb"></span>
+			<span id="calculatedy2"></span>
+			<span id="calculatedb"></span>
+			<span id="pelaporan"></span>
+			<span id="tketelitian"></span>
+		</div>
+		<div class="grafik">
+			<center>
+				<h2>Grafik</h2>
+				<canvas id="gambargrafik" width="600" height="600">
+				</canvas>
+			</center>
+		</div>
+	<footer class="bawah">
+		<p align="center">Copyright &copy; 2017 - <a href="http://msatrio.com" target="_blank">Muhammad Satrio Wicaksono</a></p>
+	</footer>
+	</div>
+
+</body>
+</html>
