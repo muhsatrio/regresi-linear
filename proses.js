@@ -13,6 +13,7 @@ $(document).ready(function() {
 	var tk=0;
 	var tk;
 	var n,hasil1,hasil2;
+	var valMaks=0;
 	var ymaks=400,xmaks=400,tempX,tempY,posX,posY;
 
 	//Make chart in canvas
@@ -38,8 +39,8 @@ $(document).ready(function() {
 	ctx.lineTo(500,500);
 	ctx.stroke();
 	ctx.font = "12px Arial";
-	ctx.fillText("X",97,90);
-	ctx.fillText("Y", 510, 503);
+	ctx.fillText("Y",97,90);
+	ctx.fillText("X", 510, 503);
 	//ctx.fillStyle = "#FF0000"; 
 	//ctx.fillRect(0,0,150,75); 
 
@@ -72,9 +73,14 @@ $(document).ready(function() {
 		sumxy=0;
 		sumx2=0;
 		sumy2=0;
+		valMaks=0;
 		for (var i=1;i<=maxKotak;i++) {
 			x = parseFloat($(".x" + i).val());
 			y = parseFloat($(".y" + i).val());
+			if (x>valMaks)
+				valMaks=x;
+			if (y>valMaks)
+				valMaks=y;
 			$(".x-" + i).text(x);
 			$(".y-" + i).text(y);
 			$(".xx-" + i).text(x*x);
@@ -130,19 +136,19 @@ $(document).ready(function() {
 		posY=500;
 		for (var i=1;i<=maxKotak;i++) {
 			if (i<2) {
-				tempX = (parseFloat($(".x" + i).val())/parseFloat($(".x" + maxKotak).val()))*350;
-				tempY = (parseFloat($(".y" + i).val())/parseFloat($(".y" + maxKotak).val()))*350;
+				tempX = (parseFloat($(".x" + i).val())/valMaks)*350;
+				tempY = (parseFloat($(".y" + i).val())/valMaks)*350;
 			}
 			else {
-				tempX = ((parseFloat($(".x" + i).val())-parseFloat($(".x" + (i-1)).val()))/parseFloat($(".x" + maxKotak).val()))*350;
-				tempY = ((parseFloat($(".y" + i).val())-parseFloat($(".y" + (i-1)).val()))/parseFloat($(".y" + maxKotak).val()))*350;	
+				tempX = ((parseFloat($(".x" + i).val())-parseFloat($(".x" + (i-1)).val()))/valMaks)*350;
+				tempY = ((parseFloat($(".y" + i).val())-parseFloat($(".y" + (i-1)).val()))/valMaks)*350;	
 			}
 			ctx.font = "12px Arial";
-			ctx.fillText($(".x" + i).val(), 50,posY-tempY);
-			ctx.fillText($(".y" + i).val(), posX+tempX, 550);
+			ctx.fillText($(".y" + i).val(), 50,posY-tempY);
+			ctx.fillText($(".x" + i).val(), posX+tempX, 550);
 			ctx.beginPath();
-			ctx.moveTo(posX+tempX,posY-tempY);
-			ctx.lineTo(posX,posY);
+			ctx.moveTo(posX,posY);
+			ctx.lineTo(posX+tempX,posY-tempY);
 			ctx.strokeStyle = "#000066";
 			ctx.stroke();
 			ctx.closePath();
@@ -159,9 +165,8 @@ $(document).ready(function() {
 			ctx.lineTo(posX+tempX,posY-tempY);
 			ctx.strokeStyle = "#a3a375";
 			ctx.stroke();
-			ctx.fillStyle = "#000000";
 			ctx.closePath();
-
+			
 			posX = posX + tempX;
 			posY = posY - tempY;
 		}
@@ -175,6 +180,7 @@ $(document).ready(function() {
 	});
 	$(".ulangiButton").click(function() {
 		maxKotak = 3;
+		valMaks=0;
 		$(".x1").val("0");
 		$(".y1").val("0");
 		$(".x2").val("0");
@@ -218,9 +224,10 @@ $(document).ready(function() {
 		ctx.moveTo(490,510);
 		ctx.lineTo(500,500);
 		ctx.stroke();
+		ctx.closePath();
 		ctx.font = "12px Arial";
-		ctx.fillText("X",97,90);
-		ctx.fillText("Y", 510, 503);
+		ctx.fillText("Y",97,90);
+		ctx.fillText("X", 510, 503);
 		poxX=100;
 		posY=500;
 	});
