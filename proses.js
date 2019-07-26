@@ -99,33 +99,33 @@ $(document).ready(function() {
 
 		valb = ((n*sumxy)-(sumX*sumY))/((n*sumx2)-(sumX*sumX));
 		var equationb = "$$ b = {N \\sum (X_i Y_i) - \\sum X_i Y_i  \\over N \\sum X_i^2 - ( \\sum X_i )^2 } = { " + n + " \\times " + sumxy + " - " + sumX  +" \\times " + sumY +"  \\over "+ n +"\\times" + sumx2 +" - (" + sumX + ")^2} = " + valb +" $$";
-		document.getElementById('calculateb').innerHTML =  equationb;
+		$("#calculateb").html(equationb);
   		MathJax.Hub.Queue(["Typeset",MathJax.Hub,'calculateb']);
 
   		//Menunjukkan nilai delta y kuadrat
 
 		valdy2 = (1/(n-2)) * (sumy2-(((sumx2*(sumY*sumY))-(2*sumX*sumY*sumxy)+(n*sumxy*sumxy))/((n*sumx2)-(sumX*sumX))));
 		var equationdy2 = "$$ \\Delta y^2 = {1 \\over N-2} \\left\\lbrack \\sum Y_i^2 - { \\sum X_i^2 (Y_i)^2 - 2 \\sum X_i \\sum Y_i \\sum (X_i Y_i) + N (\\sum X_i Y_i)^2  \\over N \\sum X_i^2 - ( \\sum X_i )^2  } \\right\\rbrack = {1 \\over " + n + "-2} \\left\\lbrack " + sumy2 + " - { "+ sumx2 +" \\times ("+ sumY +")^2 - 2 \\times "+ sumX +" \\times "+ sumY +" \\times "+ sumxy +" + "+ n +" \\times ( "+ sumxy +")^2  \\over "+ n +" \\times "+ sumx2 +" - ("+ sumX +")^2  } \\right\\rbrack = "+ valdy2 +" $$";
-		document.getElementById('calculatedy2').innerHTML =  equationdy2;
+		$("#calculatedy2").html(equationdy2);
   		MathJax.Hub.Queue(["Typeset",MathJax.Hub,'calculatedy2']);
   		//Menunjukkan nilai delta b
 
 		valdb = Math.sqrt(valdy2) * Math.sqrt((n)/((n*sumx2)-(sumX*sumX)));
 		var equationdb = "$$ \\Delta b = \\Delta y \\sqrt{ N \\over N \\sum X_i^2 - ( \\sum X_i )^2 } = "+ Math.sqrt(valdy2) +"  \\sqrt{ "+ n +" \\over "+ n +" \\times "+ sumx2 +" - ( "+ sumX +")^2 } = "+ valdb +" $$";
-		document.getElementById('calculatedb').innerHTML =  equationdb;
+		$("#calculateb").html(equationb);
   		MathJax.Hub.Queue(["Typeset",MathJax.Hub,'calculatedb']);
 
   		//Menunjukkan pelaporan
 
   		var pelaporan = "$$ Pelaporan \\ (b \\pm \\Delta b) = "+ valb +" \\pm "+ valdb +" $$"
-  		document.getElementById('pelaporan').innerHTML =  pelaporan;
+		$("#pelaporan").html(pelaporan);  
   		MathJax.Hub.Queue(["Typeset",MathJax.Hub,'pelaporan']);
 
   		//Menunjukkan tingkat ketelitian
 
 		tk = (1-(valdb/valb))*100;
 		var tketelitian = "$$ TK = 1 - { \\Delta b \\over b } \\times 100 \\% = 1 - {"+ valdb +" \\over "+ valb +"} \\times 100 \\% = "+ tk +" \\% $$";
-		document.getElementById('tketelitian').innerHTML =  tketelitian;
+		$("#tketelitian").html(tketelitian);
   		MathJax.Hub.Queue(["Typeset",MathJax.Hub,'tketelitian']);
 		$(".x-sum").text(sumX);
 		$(".y-sum").text(sumY);
